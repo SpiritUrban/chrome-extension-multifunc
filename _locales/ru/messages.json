@@ -1,0 +1,17 @@
+{
+  "app_name": {
+    "message": "VK Comment Blocker"
+  },
+  "app_description": {
+    "message": "Удобный способ скрыть комментарии в новостной ленте и группах."
+  },
+  "browser_action": {
+    "message": "Переключить вид комментариев"
+  },
+  "mode_enable": {
+    "message": "Без комментариев!"
+  },
+  "mode_disable": {
+    "message": "С комментариями!"
+  }
+}

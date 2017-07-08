@@ -1,0 +1,67 @@
+// https://canonium.com/articles/briefly-about-building-a-chrome-extension
+
+{
+  "manifest_version": 2, // Начиная с Chrome 18 ставим 2, иначе 1 (не поддерживается такое старьё)
+  "name": "My Extension", // Название расширения
+  "version": "1.0", // Версия расширения
+    
+    
+  "default_locale": "en", // Язык по умолчанию
+  "description": "A plain text description", // Описание приложения
+    
+    
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+    
+
+  "short_name": "Short Name", // Короткое название расширения (~12 символов) для тех мест, где мало места для вывода полного названия
+    
+    
+  "permissions": [ // ALL - https://developer.chrome.com/extensions/declare_permissions
+    "tabs", // Доступ к объекту Tabs
+    "activeTab", // Доступ к объекту ActiveTabs
+    "storage"
+  ],    
+
+    
+  "browser_action": {
+    "default_title": "Default Title", // Заголовок, который отображается при наведении
+    "default_icon": "icon_48.png", // Иконка для отображения
+    "default_popup": "popup.html" // страница (окно), которая будет отображаться при клике на иконку 
+  },
+    
+    
+  //"options_page": "options.html", // страницa настроек 
+    
+    
+  // Также можно перманентно вешать на различные страницы какие-то ресурсы (css или js), в зависимости от адреса:
+  "content_scripts": [
+      {
+        "matches": [
+          "http://facebook.com/*",
+          "https://facebook.com/*",
+          "http://www.facebook.com//*",
+          "https://www.facebook.com//*"            
+         ],
+        "css": [ "styles/styles.css" ]
+      }
+  ],
+    
+  "web_accessible_resources": [ "styles/styles_on.css" ],
+    
+    
+  // можно указать фоновую страницу:
+  // Фоновая страница — это невидимая страница, которая нужна для того, чтобы объединять все вкладки. 
+  // Ссылки на ресурсы можно указывать как в файле манифеста, так и на самой странице background.html.
+  "background": {
+    "page": "background.html",
+    //"scripts": ["scripts.js"],
+    "persistent": false
+  }
+    
+    
+    
+}
