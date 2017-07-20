@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
                // chrome.storage.sync.set({'year': year});
 
   chrome.tabs.executeScript({
-    code: 'document.body.style.backgroundColor="red"'
+    code: 'document.body.style.backgroundColor="red"',
+      code: 'alert(JSON.stringify( document.body.innerHTML ))'
   });               
             
         });        
