@@ -25,7 +25,8 @@
     "activeTab", // Доступ к объекту ActiveTabs
     "storage",
     "notifications",
-    "alarms"
+    "alarms",
+    "storage"
   ],    
 
     

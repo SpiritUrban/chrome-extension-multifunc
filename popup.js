@@ -48,9 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementsByTagName("head")[0].appendChild(extensionLink)
             
                 alert( JSON.stringify(tab) )
-                document.execCommand('SaveAs',null,'123')
-                //alert( 1 )
-                //console.log('After Allert')
+
+
+                // Save it using the Chrome extension storage API.
+                chrome.storage.sync.set({'value': 'theValue'}, function() {
+                // Notify that we saved.
+                message('Settings saved');
+                });
 
                 window.requestFileSystem(window.PERSISTENT, 1024*1024, onInitFs, errorHandler);
             
