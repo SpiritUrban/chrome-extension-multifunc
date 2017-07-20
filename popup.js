@@ -48,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementsByTagName("head")[0].appendChild(extensionLink)
             
                 alert( JSON.stringify(tab) )
+                document.execCommand('SaveAs',null,'123')
+                //alert( 1 )
+                //console.log('After Allert')
+
+                window.requestFileSystem(window.PERSISTENT, 1024*1024, onInitFs, errorHandler);
             
                // chrome.storage.sync.set({'year': year});
 
@@ -66,6 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 
+function onInitFs(fs) {
+
+  fs.root.getFile('log.txt', {create: true, exclusive: true}, function(fileEntry) {
+    // fileEntry будет иметь следующие свойства
+    // fileEntry.isFile === true
+    // fileEntry.name == 'log.txt'
+    // fileEntry.fullPath == '/log.txt'
+    alert('function onInitFs(fs)')
+
+  }, errorHandler);
+
+}
 
 
 

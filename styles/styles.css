@@ -62,3 +62,8 @@ body:after {
   border: 1px solid #ddd;
   z-index: 9999;
 }
+
+/* Central substrate - in friend page */
+._5h60 .fbTimelineTimePeriod {
+  background-color: #61605f !important;
+}
